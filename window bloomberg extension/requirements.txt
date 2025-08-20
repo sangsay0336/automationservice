@@ -1,0 +1,72 @@
+# Bloomberg Extension Automation Service Requirements
+# Generated for comprehensive Bloomberg PDF processing and automation system
+
+# Database connectivity
+pyodbc==5.0.1
+
+# PDF processing and text extraction
+PyPDF2==3.0.1
+pdfplumber==0.10.3
+
+# AI functionality (Google Gemini)
+google-generativeai==0.3.2
+
+# Image processing (for icon creation)
+Pillow==10.0.0
+
+# Keyboard automation
+pynput==1.7.6
+
+# Web framework for UI components
+Flask==2.3.3
+Flask-SocketIO==5.3.6
+
+# HTTP requests and web scraping
+requests==2.31.0
+urllib3==2.0.7
+
+# System process monitoring
+psutil==5.9.5
+
+# Environment configuration
+python-dotenv==1.0.0
+
+# Data validation and parsing
+dataclasses-json==0.6.1
+
+# Timezone handling
+pytz==2023.3
+
+# Development and debugging
+colorama==0.4.6
+
+# File watching and monitoring
+watchdog==3.0.0
+
+# Configuration management
+configparser==5.3.0
+
+# Additional utility libraries
+pathlib2==2.3.7
+typing-extensions==4.8.0
+
+# Standard libraries (included with Python, listed for reference)
+# - json
+# - logging
+# - threading
+# - datetime
+# - typing
+# - re
+# - os
+# - time
+# - sys
+# - signal
+# - subprocess
+# - shutil
+# - glob
+# - argparse
+# - io
+# - http.server
+# - urllib.parse
+# - base64
+# - hashlib
