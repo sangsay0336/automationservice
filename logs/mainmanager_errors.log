@@ -1,0 +1,18 @@
+2025-08-20 01:01:38.008 - StreamlinedMainManager - ERROR - run:1349 - ERROR: Fatal error: [WinError 5] Access is denied: '\\Users\\sangsay'
+2025-08-20 01:03:37.470 - StreamlinedMainManager - ERROR - run:1349 - ERROR: Fatal error: [WinError 5] Access is denied: '\\Users\\sangsay'
+2025-08-20 01:04:49.394 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for 'Job hugging' has replaced job hopping.pdf
+2025-08-20 01:04:49.906 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for 10 things to watch in the stock market Monday including Nvidia and geopolitics.pdf
+2025-08-20 01:04:50.430 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for 10 things to watch in the stock market Tuesday including Palo Alto and Home Depot earnings.pdf
+2025-08-20 01:04:50.941 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for 5 things to know before the stock market opens Monday.pdf
+2025-08-20 01:04:51.452 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for 5 things to know before the stock market opens Tuesday.pdf
+2025-08-20 01:04:51.964 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for Air Canada suspends third-quarter and full-year guidance following 'unlawful' strike.pdf
+2025-08-20 01:04:57.501 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for 'Job hugging' has replaced job hopping.pdf
+2025-08-20 01:04:58.012 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for 10 things to watch in the stock market Monday including Nvidia and geopolitics.pdf
+2025-08-20 01:04:58.523 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for 10 things to watch in the stock market Tuesday including Palo Alto and Home Depot earnings.pdf
+2025-08-20 01:04:59.034 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for 5 things to know before the stock market opens Monday.pdf
+2025-08-20 01:04:59.548 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for 5 things to know before the stock market opens Tuesday.pdf
+2025-08-20 01:05:00.060 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for Air Canada suspends third-quarter and full-year guidance following 'unlawful' strike.pdf
+2025-08-20 01:05:00.572 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for Air Canada, flight attendants reach tentative deal to end strike.pdf
+2025-08-20 01:05:01.082 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for Amazon Expands Space at WeWork’s Offices in Midtown Manhattan - Bloomberg.pdf
+2025-08-20 01:05:01.595 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for American money pours into European soccer as club valuations soar.pdf
+2025-08-20 01:05:02.107 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for An Asian data center hub is quietly grappling with AI's massive costs.pdf

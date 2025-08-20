@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MainManager - News Processing Dashboard</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header h1 {
+            color: #2c3e50;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .status-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #e74c3c;
+            display: inline-block;
+            margin-right: 8px;
+        }
+        
+        .status-indicator.running {
+            background: #27ae60;
+            animation: pulse 2s infinite;
+        }
+        
+        .status-indicator.paused {
+            background: #f39c12;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+        
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .stat-value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .stat-label {
+            font-size: 12px;
+            color: #7f8c8d;
+            margin-top: 5px;
+        }
+        
+        .link-input {
+            width: 100%;
+            height: 120px;
+            padding: 10px;
+            border: 2px solid #bdc3c7;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 14px;
+            resize: vertical;
+        }
+        
+        .link-input:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: #3498db;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #2980b9;
+        }
+        
+        .btn-success {
+            background: #27ae60;
+            color: white;
+        }
+        
+        .btn-success:hover {
+            background: #219a52;
+        }
+        
+        .btn-warning {
+            background: #f39c12;
+            color: white;
+        }
+        
+        .btn-warning:hover {
+            background: #e67e22;
+        }
+        
+        .btn-danger {
+            background: #e74c3c;
+            color: white;
+        }
+        
+        .btn-danger:hover {
+            background: #c0392b;
+        }
+        
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .current-link {
+            background: #e8f5e8;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            border-left: 4px solid #27ae60;
+        }
+        
+        .current-link-url {
+            font-family: monospace;
+            font-size: 12px;
+            color: #2c3e50;
+            word-break: break-all;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #ecf0f1;
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #3498db, #2ecc71);
+            transition: width 0.3s ease;
+        }
+        
+        .log-container {
+            max-height: 300px;
+            overflow-y: auto;
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 12px;
+        }
+        
+        .log-entry {
+            margin-bottom: 8px;
+            padding: 5px;
+            border-radius: 3px;
+        }
+        
+        .log-entry.success {
+            background: rgba(39, 174, 96, 0.2);
+        }
+        
+        .log-entry.error {
+            background: rgba(231, 76, 60, 0.2);
+        }
+        
+        .log-entry.info {
+            background: rgba(52, 152, 219, 0.2);
+        }
+        
+        .full-width {
+            grid-column: 1 / -1;
+        }
+        
+        .pause-notice {
+            background: #fff3cd;
+            color: #856404;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border: 1px solid #ffeaa7;
+        }
+        
+        .pause-notice h4 {
+            margin-bottom: 10px;
+        }
+        
+        .navigation {
+            margin-bottom: 20px;
+        }
+        
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.1);
+            margin-right: 10px;
+            transition: background 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .nav-link.active {
+            background: rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="navigation">
+            <a href="/" class="nav-link active">Dashboard</a>
+            <a href="/settings" class="nav-link">Settings</a>
+        </div>
+        
+        <div class="header">
+            <h1>
+                <span class="status-indicator" id="statusIndicator"></span>
+                MainManager - News Processing Dashboard
+            </h1>
+            <p>Control and monitor your news article processing workflow</p>
+        </div>
+        
+        <div class="dashboard-grid">
+            <div class="card">
+                <h3>📊 Processing Statistics</h3>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-value" id="processedCount">0</div>
+                        <div class="stat-label">Processed</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="failedCount">0</div>
+                        <div class="stat-label">Failed</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="queueCount">0</div>
+                        <div class="stat-label">In Queue</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="retryCount">0</div>
+                        <div class="stat-label">Retries</div>
+                    </div>
+                </div>
+                
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+                </div>
+                
+                <div id="currentLinkContainer" class="current-link" style="display: none;">
+                    <strong>Currently Processing:</strong>
+                    <div class="current-link-url" id="currentLinkUrl"></div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3>🔗 Link Management</h3>
+                <textarea id="linkInput" class="link-input" placeholder="Paste your news article URLs here (one per line)..."></textarea>
+                <div class="button-group">
+                    <button class="btn btn-primary" onclick="addLinks()">Add Links</button>
+                    <button class="btn btn-warning" onclick="clearQueue()">Clear Queue</button>
+                    <button class="btn btn-success" onclick="retryFailed()">Retry Failed</button>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3>⚙️ Processing Control</h3>
+                <div class="button-group">
+                    <button class="btn btn-success" id="startBtn" onclick="startProcessing()">Start Processing</button>
+                    <button class="btn btn-warning" id="pauseBtn" onclick="pauseProcessing()" disabled>Pause</button>
+                    <button class="btn btn-danger" id="stopBtn" onclick="stopProcessing()" disabled>Stop</button>
+                </div>
+                
+                <div id="pauseNotice" class="pause-notice" style="display: none;">
+                    <h4>⏸️ Processing Paused</h4>
+                    <p id="pauseReason">Processing has been paused.</p>
+                    <button class="btn btn-success" onclick="resumeProcessing()">Continue Processing</button>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3>📈 Extension Status</h3>
+                <div id="extensionStatus">
+                    <p>Extension connection: <span id="extensionConnectionStatus">Checking...</span></p>
+                    <p>Chrome Extension: <span id="chromeExtensionStatus">Not detected</span></p>
+                    <div class="button-group">
+                        <button class="btn btn-primary" onclick="checkExtensionStatus()">Check Status</button>
+                        <button class="btn btn-primary" onclick="sendLinksToExtension()">Send Links to Extension</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card full-width">
+            <h3>📋 Activity Log</h3>
+            <div class="log-container" id="logContainer">
+                <div class="log-entry info">[System] MainManager Dashboard loaded</div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Initialize Socket.IO connection
+        const socket = io();
+        
+        // Global state
+        let processingStatus = {
+            is_running: false,
+            is_paused: false,
+            waiting_for_user: false,
+            current_link: null,
+            processed_count: 0,
+            failed_count: 0,
+            total_links: 0,
+            retry_count: 0,
+            pause_reason: null
+        };
+        
+        // Socket event handlers
+        socket.on('connect', function() {
+            addLogEntry('Connected to MainManager server', 'success');
+            socket.emit('request_status');
+        });
+        
+        socket.on('disconnect', function() {
+            addLogEntry('Disconnected from MainManager server', 'error');
+        });
+        
+        socket.on('status_update', function(data) {
+            processingStatus = data.status;
+            updateUI();
+        });
+        
+        // UI update functions
+        function updateUI() {
+            // Update status indicator
+            const statusIndicator = document.getElementById('statusIndicator');
+            statusIndicator.className = 'status-indicator';
+            
+            if (processingStatus.is_running) {
+                statusIndicator.classList.add('running');
+            } else if (processingStatus.is_paused) {
+                statusIndicator.classList.add('paused');
+            }
+            
+            // Update statistics
+            document.getElementById('processedCount').textContent = processingStatus.processed_count;
+            document.getElementById('failedCount').textContent = processingStatus.failed_count;
+            document.getElementById('queueCount').textContent = processingStatus.total_links - processingStatus.processed_count - processingStatus.failed_count;
+            document.getElementById('retryCount').textContent = processingStatus.retry_count;
+            
+            // Update progress bar
+            const progress = processingStatus.total_links > 0 ? 
+                ((processingStatus.processed_count + processingStatus.failed_count) / processingStatus.total_links) * 100 : 0;
+            document.getElementById('progressFill').style.width = progress + '%';
+            
+            // Update current link display
+            const currentLinkContainer = document.getElementById('currentLinkContainer');
+            const currentLinkUrl = document.getElementById('currentLinkUrl');
+            
+            if (processingStatus.current_link) {
+                currentLinkContainer.style.display = 'block';
+                currentLinkUrl.textContent = processingStatus.current_link;
+            } else {
+                currentLinkContainer.style.display = 'none';
+            }
+            
+            // Update button states
+            updateButtonStates();
+            
+            // Update pause notice
+            updatePauseNotice();
+        }
+        
+        function updateButtonStates() {
+            const startBtn = document.getElementById('startBtn');
+            const pauseBtn = document.getElementById('pauseBtn');
+            const stopBtn = document.getElementById('stopBtn');
+            
+            if (processingStatus.is_running) {
+                startBtn.disabled = true;
+                pauseBtn.disabled = false;
+                stopBtn.disabled = false;
+            } else {
+                startBtn.disabled = false;
+                pauseBtn.disabled = true;
+                stopBtn.disabled = true;
+            }
+        }
+        
+        function updatePauseNotice() {
+            const pauseNotice = document.getElementById('pauseNotice');
+            const pauseReason = document.getElementById('pauseReason');
+            
+            if (processingStatus.is_paused || processingStatus.waiting_for_user) {
+                pauseNotice.style.display = 'block';
+                pauseReason.textContent = processingStatus.pause_reason || 'Processing has been paused.';
+            } else {
+                pauseNotice.style.display = 'none';
+            }
+        }
+        
+        function addLogEntry(message, type = 'info') {
+            const logContainer = document.getElementById('logContainer');
+            const timestamp = new Date().toLocaleTimeString();
+            const logEntry = document.createElement('div');
+            logEntry.className = `log-entry ${type}`;
+            logEntry.textContent = `[${timestamp}] ${message}`;
+            
+            logContainer.appendChild(logEntry);
+            logContainer.scrollTop = logContainer.scrollHeight;
+            
+            // Keep only last 100 entries
+            while (logContainer.children.length > 100) {
+                logContainer.removeChild(logContainer.firstChild);
+            }
+        }
+        
+        // API functions
+        async function addLinks() {
+            const linkInput = document.getElementById('linkInput');
+            const links = linkInput.value.trim();
+            
+            if (!links) {
+                addLogEntry('Please enter some links to add', 'error');
+                return;
+            }
+            
+            try {
+                const response = await fetch('/api/links', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ links: links })
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    addLogEntry(`Added ${data.added_count} links to queue`, 'success');
+                    linkInput.value = '';
+                } else {
+                    addLogEntry(`Error adding links: ${data.error}`, 'error');
+                }
+            } catch (error) {
+                addLogEntry(`Error adding links: ${error.message}`, 'error');
+            }
+        }
+        
+        async function startProcessing() {
+            try {
+                const response = await fetch('/api/processing/start', {
+                    method: 'POST'
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    addLogEntry('Processing started', 'success');
+                } else {
+                    addLogEntry(`Error starting processing: ${data.error}`, 'error');
+                }
+            } catch (error) {
+                addLogEntry(`Error starting processing: ${error.message}`, 'error');
+            }
+        }
+        
+        async function pauseProcessing() {
+            try {
+                const response = await fetch('/api/processing/pause', {
+                    method: 'POST'
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    addLogEntry('Processing paused', 'info');
+                } else {
+                    addLogEntry(`Error pausing processing: ${data.error}`, 'error');
+                }
+            } catch (error) {
+                addLogEntry(`Error pausing processing: ${error.message}`, 'error');
+            }
+        }
+        
+        async function stopProcessing() {
+            try {
+                const response = await fetch('/api/processing/stop', {
+                    method: 'POST'
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    addLogEntry('Processing stopped', 'info');
+                } else {
+                    addLogEntry(`Error stopping processing: ${data.error}`, 'error');
+                }
+            } catch (error) {
+                addLogEntry(`Error stopping processing: ${error.message}`, 'error');
+            }
+        }
+        
+        async function resumeProcessing() {
+            try {
+                const response = await fetch('/api/processing/resume', {
+                    method: 'POST'
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    addLogEntry('Processing resumed', 'success');
+                } else {
+                    addLogEntry(`Error resuming processing: ${data.error}`, 'error');
+                }
+            } catch (error) {
+                addLogEntry(`Error resuming processing: ${error.message}`, 'error');
+            }
+        }
+        
+        async function clearQueue() {
+            if (!confirm('Are you sure you want to clear the processing queue?')) {
+                return;
+            }
+            
+            try {
+                const response = await fetch('/api/clear_queue', {
+                    method: 'POST'
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    addLogEntry('Queue cleared', 'info');
+                } else {
+                    addLogEntry(`Error clearing queue: ${data.error}`, 'error');
+                }
+            } catch (error) {
+                addLogEntry(`Error clearing queue: ${error.message}`, 'error');
+            }
+        }
+        
+        async function retryFailed() {
+            try {
+                const response = await fetch('/api/retry_failed', {
+                    method: 'POST'
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    addLogEntry(`${data.retried_count} failed links added back to queue`, 'success');
+                } else {
+                    addLogEntry(`Error retrying failed links: ${data.error}`, 'error');
+                }
+            } catch (error) {
+                addLogEntry(`Error retrying failed links: ${error.message}`, 'error');
+            }
+        }
+        
+        async function checkExtensionStatus() {
+            // This will be implemented when extension communication is ready
+            addLogEntry('Extension status check not yet implemented', 'info');
+        }
+        
+        async function sendLinksToExtension() {
+            // This will be implemented when extension communication is ready
+            addLogEntry('Send links to extension not yet implemented', 'info');
+        }
+        
+        // Initialize UI
+        updateUI();
+        
+        // Refresh status every 5 seconds
+        setInterval(() => {
+            socket.emit('request_status');
+        }, 5000);
+    </script>
+</body>
+</html>

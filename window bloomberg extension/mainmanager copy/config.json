@@ -1,0 +1,19 @@
+{
+    "database": {
+        "server": "sangsay.database.windows.net",
+        "database": "SQL TEST",
+        "username": "sangsay",
+        "password": "coronafranklinorganization168!"
+    },
+    "directories": {
+        "pdf_incoming": "C:\\Users\\sangs\\Desktop\\Mainmanger processor",
+        "backup": "C:\\Users\\sangs\\Desktop\\Mainmanger processor\\BACKUP"
+    },
+    "processing": {
+        "scan_interval": 10,
+        "max_retries": 3,
+        "retry_delay": 5,
+        "batch_size": 5
+    },
+    "gemini_api_key": "YOUR_GEMINI_API_KEY_HERE"
+}

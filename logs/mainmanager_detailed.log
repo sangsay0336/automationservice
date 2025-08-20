@@ -1,0 +1,187 @@
+01:01:25 - DEBUG - Starting Gemini AI initialization
+01:01:25 - INFO - Gemini AI initialized successfully
+01:01:25 - DEBUG - Starting database initialization
+01:01:25 - DEBUG - Database config: max_retries=3, retry_delay=5
+01:01:25 - DEBUG - Database server: sangsay.database.windows.net
+01:01:25 - DEBUG - Database name: SQL TEST
+01:01:25 - DEBUG - Username: sangsay
+01:01:25 - DEBUG - Database connection attempt 1/3
+01:01:25 - DEBUG - Could not query ODBC drivers: [WinError 2] The system cannot find the file specified
+01:01:25 - DEBUG - Starting database connection...
+01:01:25 - DEBUG - Connection string: DRIVER={ODBC Driver 18 for SQL Server};SERVER=sangsay.database.windows.net;DATABASE=SQL TEST;UID=sangsay;PWD=***;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;
+01:01:26 - INFO - Database connection established in 0.82s
+01:01:26 - DEBUG - Testing database connection with simple query...
+01:01:26 - DEBUG - Test query result: (1,)
+01:01:26 - DEBUG - Database version: Microsoft SQL Azure (RTM) - 12.0.2000.8 
+	Jul  3 2025 16:52:14 
+	Copyright (C) 2025 Microsoft Corporation
+
+01:01:26 - DEBUG - NewsReferences table exists: True
+01:01:27 - DEBUG - Current record count in NewsReferences: 45795
+01:01:27 - INFO - Streamlined MainManager initialized successfully
+01:01:27 - INFO - Starting PDF processing
+01:01:27 - INFO - Monitoring: C:\Users\sangs\Desktop\INCOMING_PDFS
+01:01:27 - INFO - Checking directory: C:\Users\sangs\Desktop\INCOMING_PDFS
+01:01:27 - INFO - Creating directory: C:\Users\sangs\Desktop\INCOMING_PDFS
+01:01:27 - INFO - Directory created successfully
+01:01:27 - INFO - Database connection closed
+01:01:27 - INFO - Streamlined MainManager stopped
+2025-08-20 01:01:36.196 - StreamlinedMainManager - DEBUG - init_gemini:214 - DEBUG: Starting Gemini AI initialization
+2025-08-20 01:01:36.197 - StreamlinedMainManager - DEBUG - init_gemini:221 - DEBUG: API key check: Found
+2025-08-20 01:01:36.197 - StreamlinedMainManager - DEBUG - init_gemini:233 - DEBUG: Configuring Gemini with API key...
+2025-08-20 01:01:36.197 - StreamlinedMainManager - DEBUG - init_gemini:234 - DEBUG: API key format: AIzaSyDAWr...3lbI
+2025-08-20 01:01:36.197 - StreamlinedMainManager - DEBUG - init_gemini:237 - DEBUG: Creating GenerativeModel instance...
+2025-08-20 01:01:36.197 - StreamlinedMainManager - DEBUG - init_gemini:241 - DEBUG: Testing Gemini model with simple request...
+2025-08-20 01:01:36.990 - StreamlinedMainManager - INFO - init_gemini:245 - INFO: Gemini AI initialized and tested successfully
+2025-08-20 01:01:36.990 - StreamlinedMainManager - DEBUG - init_gemini:246 - DEBUG: Test response: TEST_OK
+2025-08-20 01:01:36.990 - StreamlinedMainManager - DEBUG - init_database:281 - DEBUG: Starting database initialization
+2025-08-20 01:01:36.990 - StreamlinedMainManager - DEBUG - init_database:286 - DEBUG: Database config: max_retries=3, retry_delay=5
+2025-08-20 01:01:36.990 - StreamlinedMainManager - DEBUG - init_database:289 - DEBUG: Database server: sangsay.database.windows.net
+2025-08-20 01:01:36.991 - StreamlinedMainManager - DEBUG - init_database:290 - DEBUG: Database name: SQL TEST
+2025-08-20 01:01:36.991 - StreamlinedMainManager - DEBUG - init_database:291 - DEBUG: Username: sangsay
+2025-08-20 01:01:36.991 - StreamlinedMainManager - DEBUG - init_database:294 - DEBUG: Database connection attempt 1/3
+2025-08-20 01:01:36.992 - StreamlinedMainManager - DEBUG - init_database:304 - WARNING: Could not query ODBC drivers: [WinError 2] The system cannot find the file specified
+2025-08-20 01:01:36.992 - StreamlinedMainManager - DEBUG - init_database:308 - DEBUG: Starting database connection...
+2025-08-20 01:01:36.992 - StreamlinedMainManager - DEBUG - get_db_connection:271 - DEBUG: Connection string: DRIVER={ODBC Driver 18 for SQL Server};SERVER=sangsay.database.windows.net;DATABASE=SQL TEST;UID=sangsay;PWD=***;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;
+2025-08-20 01:01:37.791 - StreamlinedMainManager - INFO - init_database:314 - INFO: Database connection established in 0.80s
+2025-08-20 01:01:37.791 - StreamlinedMainManager - DEBUG - init_database:319 - DEBUG: Testing database connection with simple query...
+2025-08-20 01:01:37.844 - StreamlinedMainManager - DEBUG - init_database:322 - DEBUG: Test query result: (1,)
+2025-08-20 01:01:37.896 - StreamlinedMainManager - DEBUG - init_database:327 - DEBUG: Database version: Microsoft SQL Azure (RTM) - 12.0.2000.8 
+	Jul  3 2025 16:52:14 
+	Copyright (C) 2025 Microsoft Corporation
+
+2025-08-20 01:01:37.949 - StreamlinedMainManager - DEBUG - init_database:332 - DEBUG: NewsReferences table exists: True
+2025-08-20 01:01:38.007 - StreamlinedMainManager - DEBUG - init_database:337 - DEBUG: Current record count in NewsReferences: 45795
+2025-08-20 01:01:38.007 - StreamlinedMainManager - INFO - __init__:96 - INFO: Streamlined MainManager initialized
+2025-08-20 01:01:38.007 - StreamlinedMainManager - INFO - run:1334 - INFO: Starting streamlined PDF processing
+2025-08-20 01:01:38.008 - StreamlinedMainManager - INFO - run:1335 - INFO: Monitoring: /Users/sangsay/Desktop/INCOMING_PDFS
+2025-08-20 01:01:38.008 - StreamlinedMainManager - ERROR - run:1349 - ERROR: Fatal error: [WinError 5] Access is denied: '\\Users\\sangsay'
+2025-08-20 01:01:38.112 - StreamlinedMainManager - INFO - stop:1595 - INFO: Database connection closed
+2025-08-20 01:01:38.113 - StreamlinedMainManager - INFO - stop:1600 - INFO: Streamlined MainManager stopped
+2025-08-20 01:03:35.759 - StreamlinedMainManager - DEBUG - init_gemini:214 - DEBUG: Starting Gemini AI initialization
+2025-08-20 01:03:35.759 - StreamlinedMainManager - DEBUG - init_gemini:221 - DEBUG: API key check: Found
+2025-08-20 01:03:35.759 - StreamlinedMainManager - DEBUG - init_gemini:233 - DEBUG: Configuring Gemini with API key...
+2025-08-20 01:03:35.759 - StreamlinedMainManager - DEBUG - init_gemini:234 - DEBUG: API key format: AIzaSyDAWr...3lbI
+2025-08-20 01:03:35.759 - StreamlinedMainManager - DEBUG - init_gemini:237 - DEBUG: Creating GenerativeModel instance...
+2025-08-20 01:03:35.759 - StreamlinedMainManager - DEBUG - init_gemini:241 - DEBUG: Testing Gemini model with simple request...
+2025-08-20 01:03:36.526 - StreamlinedMainManager - INFO - init_gemini:245 - INFO: Gemini AI initialized and tested successfully
+2025-08-20 01:03:36.527 - StreamlinedMainManager - DEBUG - init_gemini:246 - DEBUG: Test response: TEST_OK
+2025-08-20 01:03:36.527 - StreamlinedMainManager - DEBUG - init_database:281 - DEBUG: Starting database initialization
+2025-08-20 01:03:36.527 - StreamlinedMainManager - DEBUG - init_database:286 - DEBUG: Database config: max_retries=3, retry_delay=5
+2025-08-20 01:03:36.527 - StreamlinedMainManager - DEBUG - init_database:289 - DEBUG: Database server: sangsay.database.windows.net
+2025-08-20 01:03:36.527 - StreamlinedMainManager - DEBUG - init_database:290 - DEBUG: Database name: SQL TEST
+2025-08-20 01:03:36.527 - StreamlinedMainManager - DEBUG - init_database:291 - DEBUG: Username: sangsay
+2025-08-20 01:03:36.527 - StreamlinedMainManager - DEBUG - init_database:294 - DEBUG: Database connection attempt 1/3
+2025-08-20 01:03:36.528 - StreamlinedMainManager - DEBUG - init_database:304 - WARNING: Could not query ODBC drivers: [WinError 2] The system cannot find the file specified
+2025-08-20 01:03:36.529 - StreamlinedMainManager - DEBUG - init_database:308 - DEBUG: Starting database connection...
+2025-08-20 01:03:36.529 - StreamlinedMainManager - DEBUG - get_db_connection:271 - DEBUG: Connection string: DRIVER={ODBC Driver 18 for SQL Server};SERVER=sangsay.database.windows.net;DATABASE=SQL TEST;UID=sangsay;PWD=***;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;
+2025-08-20 01:03:37.240 - StreamlinedMainManager - INFO - init_database:314 - INFO: Database connection established in 0.71s
+2025-08-20 01:03:37.240 - StreamlinedMainManager - DEBUG - init_database:319 - DEBUG: Testing database connection with simple query...
+2025-08-20 01:03:37.296 - StreamlinedMainManager - DEBUG - init_database:322 - DEBUG: Test query result: (1,)
+2025-08-20 01:03:37.351 - StreamlinedMainManager - DEBUG - init_database:327 - DEBUG: Database version: Microsoft SQL Azure (RTM) - 12.0.2000.8 
+	Jul  3 2025 16:52:14 
+	Copyright (C) 2025 Microsoft Corporation
+
+2025-08-20 01:03:37.408 - StreamlinedMainManager - DEBUG - init_database:332 - DEBUG: NewsReferences table exists: True
+2025-08-20 01:03:37.469 - StreamlinedMainManager - DEBUG - init_database:337 - DEBUG: Current record count in NewsReferences: 45795
+2025-08-20 01:03:37.469 - StreamlinedMainManager - INFO - __init__:96 - INFO: Streamlined MainManager initialized
+2025-08-20 01:03:37.469 - StreamlinedMainManager - INFO - run:1334 - INFO: Starting streamlined PDF processing
+2025-08-20 01:03:37.469 - StreamlinedMainManager - INFO - run:1335 - INFO: Monitoring: /Users/sangsay/Desktop/INCOMING_PDFS
+2025-08-20 01:03:37.470 - StreamlinedMainManager - ERROR - run:1349 - ERROR: Fatal error: [WinError 5] Access is denied: '\\Users\\sangsay'
+2025-08-20 01:03:37.581 - StreamlinedMainManager - INFO - stop:1595 - INFO: Database connection closed
+2025-08-20 01:03:37.582 - StreamlinedMainManager - INFO - stop:1600 - INFO: Streamlined MainManager stopped
+2025-08-20 01:04:47.373 - StreamlinedMainManager - DEBUG - init_gemini:214 - DEBUG: Starting Gemini AI initialization
+2025-08-20 01:04:47.373 - StreamlinedMainManager - DEBUG - init_gemini:221 - DEBUG: API key check: Found
+2025-08-20 01:04:47.373 - StreamlinedMainManager - DEBUG - init_gemini:233 - DEBUG: Configuring Gemini with API key...
+2025-08-20 01:04:47.373 - StreamlinedMainManager - DEBUG - init_gemini:234 - DEBUG: API key format: AIzaSyDAWr...3lbI
+2025-08-20 01:04:47.374 - StreamlinedMainManager - DEBUG - init_gemini:237 - DEBUG: Creating GenerativeModel instance...
+2025-08-20 01:04:47.374 - StreamlinedMainManager - DEBUG - init_gemini:241 - DEBUG: Testing Gemini model with simple request...
+2025-08-20 01:04:48.222 - StreamlinedMainManager - INFO - init_gemini:245 - INFO: Gemini AI initialized and tested successfully
+2025-08-20 01:04:48.222 - StreamlinedMainManager - DEBUG - init_gemini:246 - DEBUG: Test response: TEST_OK
+2025-08-20 01:04:48.222 - StreamlinedMainManager - DEBUG - init_database:281 - DEBUG: Starting database initialization
+2025-08-20 01:04:48.222 - StreamlinedMainManager - DEBUG - init_database:286 - DEBUG: Database config: max_retries=3, retry_delay=5
+2025-08-20 01:04:48.222 - StreamlinedMainManager - DEBUG - init_database:289 - DEBUG: Database server: sangsay.database.windows.net
+2025-08-20 01:04:48.222 - StreamlinedMainManager - DEBUG - init_database:290 - DEBUG: Database name: SQL TEST
+2025-08-20 01:04:48.222 - StreamlinedMainManager - DEBUG - init_database:291 - DEBUG: Username: sangsay
+2025-08-20 01:04:48.223 - StreamlinedMainManager - DEBUG - init_database:294 - DEBUG: Database connection attempt 1/3
+2025-08-20 01:04:48.224 - StreamlinedMainManager - DEBUG - init_database:304 - WARNING: Could not query ODBC drivers: [WinError 2] The system cannot find the file specified
+2025-08-20 01:04:48.224 - StreamlinedMainManager - DEBUG - init_database:308 - DEBUG: Starting database connection...
+2025-08-20 01:04:48.224 - StreamlinedMainManager - DEBUG - get_db_connection:271 - DEBUG: Connection string: DRIVER={ODBC Driver 18 for SQL Server};SERVER=sangsay.database.windows.net;DATABASE=SQL TEST;UID=sangsay;PWD=***;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;
+2025-08-20 01:04:49.117 - StreamlinedMainManager - INFO - init_database:314 - INFO: Database connection established in 0.89s
+2025-08-20 01:04:49.118 - StreamlinedMainManager - DEBUG - init_database:319 - DEBUG: Testing database connection with simple query...
+2025-08-20 01:04:49.182 - StreamlinedMainManager - DEBUG - init_database:322 - DEBUG: Test query result: (1,)
+2025-08-20 01:04:49.245 - StreamlinedMainManager - DEBUG - init_database:327 - DEBUG: Database version: Microsoft SQL Azure (RTM) - 12.0.2000.8 
+	Jul  3 2025 16:52:14 
+	Copyright (C) 2025 Microsoft Corporation
+
+2025-08-20 01:04:49.310 - StreamlinedMainManager - DEBUG - init_database:332 - DEBUG: NewsReferences table exists: True
+2025-08-20 01:04:49.380 - StreamlinedMainManager - DEBUG - init_database:337 - DEBUG: Current record count in NewsReferences: 45795
+2025-08-20 01:04:49.380 - StreamlinedMainManager - INFO - __init__:96 - INFO: Streamlined MainManager initialized
+2025-08-20 01:04:49.380 - StreamlinedMainManager - INFO - run:1334 - INFO: Starting streamlined PDF processing
+2025-08-20 01:04:49.380 - StreamlinedMainManager - INFO - run:1335 - INFO: Monitoring: C:\Users\sangs\Desktop\Mainmanger processor
+2025-08-20 01:04:49.381 - StreamlinedMainManager - INFO - scan_and_process:1297 - INFO: Found 186 PDF files
+2025-08-20 01:04:49.382 - StreamlinedMainManager - INFO - process_single_pdf:1245 - INFO: Processing: 'Job hugging' has replaced job hopping.pdf
+2025-08-20 01:04:49.394 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for 'Job hugging' has replaced job hopping.pdf
+2025-08-20 01:04:49.895 - StreamlinedMainManager - INFO - process_single_pdf:1245 - INFO: Processing: 10 things to watch in the stock market Monday including Nvidia and geopolitics.pdf
+2025-08-20 01:04:49.906 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for 10 things to watch in the stock market Monday including Nvidia and geopolitics.pdf
+2025-08-20 01:04:50.419 - StreamlinedMainManager - INFO - process_single_pdf:1245 - INFO: Processing: 10 things to watch in the stock market Tuesday including Palo Alto and Home Depot earnings.pdf
+2025-08-20 01:04:50.430 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for 10 things to watch in the stock market Tuesday including Palo Alto and Home Depot earnings.pdf
+2025-08-20 01:04:50.930 - StreamlinedMainManager - INFO - process_single_pdf:1245 - INFO: Processing: 5 things to know before the stock market opens Monday.pdf
+2025-08-20 01:04:50.941 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for 5 things to know before the stock market opens Monday.pdf
+2025-08-20 01:04:51.441 - StreamlinedMainManager - INFO - process_single_pdf:1245 - INFO: Processing: 5 things to know before the stock market opens Tuesday.pdf
+2025-08-20 01:04:51.452 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for 5 things to know before the stock market opens Tuesday.pdf
+2025-08-20 01:04:51.953 - StreamlinedMainManager - INFO - process_single_pdf:1245 - INFO: Processing: Air Canada suspends third-quarter and full-year guidance following 'unlawful' strike.pdf
+2025-08-20 01:04:51.964 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for Air Canada suspends third-quarter and full-year guidance following 'unlawful' strike.pdf
+2025-08-20 01:04:55.682 - StreamlinedMainManager - DEBUG - init_gemini:214 - DEBUG: Starting Gemini AI initialization
+2025-08-20 01:04:55.682 - StreamlinedMainManager - DEBUG - init_gemini:221 - DEBUG: API key check: Found
+2025-08-20 01:04:55.682 - StreamlinedMainManager - DEBUG - init_gemini:233 - DEBUG: Configuring Gemini with API key...
+2025-08-20 01:04:55.682 - StreamlinedMainManager - DEBUG - init_gemini:234 - DEBUG: API key format: AIzaSyDAWr...3lbI
+2025-08-20 01:04:55.682 - StreamlinedMainManager - DEBUG - init_gemini:237 - DEBUG: Creating GenerativeModel instance...
+2025-08-20 01:04:55.682 - StreamlinedMainManager - DEBUG - init_gemini:241 - DEBUG: Testing Gemini model with simple request...
+2025-08-20 01:04:56.480 - StreamlinedMainManager - INFO - init_gemini:245 - INFO: Gemini AI initialized and tested successfully
+2025-08-20 01:04:56.480 - StreamlinedMainManager - DEBUG - init_gemini:246 - DEBUG: Test response: TEST_OK
+2025-08-20 01:04:56.481 - StreamlinedMainManager - DEBUG - init_database:281 - DEBUG: Starting database initialization
+2025-08-20 01:04:56.481 - StreamlinedMainManager - DEBUG - init_database:286 - DEBUG: Database config: max_retries=3, retry_delay=5
+2025-08-20 01:04:56.481 - StreamlinedMainManager - DEBUG - init_database:289 - DEBUG: Database server: sangsay.database.windows.net
+2025-08-20 01:04:56.481 - StreamlinedMainManager - DEBUG - init_database:290 - DEBUG: Database name: SQL TEST
+2025-08-20 01:04:56.481 - StreamlinedMainManager - DEBUG - init_database:291 - DEBUG: Username: sangsay
+2025-08-20 01:04:56.481 - StreamlinedMainManager - DEBUG - init_database:294 - DEBUG: Database connection attempt 1/3
+2025-08-20 01:04:56.482 - StreamlinedMainManager - DEBUG - init_database:304 - WARNING: Could not query ODBC drivers: [WinError 2] The system cannot find the file specified
+2025-08-20 01:04:56.482 - StreamlinedMainManager - DEBUG - init_database:308 - DEBUG: Starting database connection...
+2025-08-20 01:04:56.482 - StreamlinedMainManager - DEBUG - get_db_connection:271 - DEBUG: Connection string: DRIVER={ODBC Driver 18 for SQL Server};SERVER=sangsay.database.windows.net;DATABASE=SQL TEST;UID=sangsay;PWD=***;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;
+2025-08-20 01:04:57.229 - StreamlinedMainManager - INFO - init_database:314 - INFO: Database connection established in 0.75s
+2025-08-20 01:04:57.229 - StreamlinedMainManager - DEBUG - init_database:319 - DEBUG: Testing database connection with simple query...
+2025-08-20 01:04:57.292 - StreamlinedMainManager - DEBUG - init_database:322 - DEBUG: Test query result: (1,)
+2025-08-20 01:04:57.356 - StreamlinedMainManager - DEBUG - init_database:327 - DEBUG: Database version: Microsoft SQL Azure (RTM) - 12.0.2000.8 
+	Jul  3 2025 16:52:14 
+	Copyright (C) 2025 Microsoft Corporation
+
+2025-08-20 01:04:57.420 - StreamlinedMainManager - DEBUG - init_database:332 - DEBUG: NewsReferences table exists: True
+2025-08-20 01:04:57.489 - StreamlinedMainManager - DEBUG - init_database:337 - DEBUG: Current record count in NewsReferences: 45795
+2025-08-20 01:04:57.489 - StreamlinedMainManager - INFO - __init__:96 - INFO: Streamlined MainManager initialized
+2025-08-20 01:04:57.489 - StreamlinedMainManager - INFO - run:1334 - INFO: Starting streamlined PDF processing
+2025-08-20 01:04:57.489 - StreamlinedMainManager - INFO - run:1335 - INFO: Monitoring: C:\Users\sangs\Desktop\Mainmanger processor
+2025-08-20 01:04:57.490 - StreamlinedMainManager - INFO - scan_and_process:1297 - INFO: Found 186 PDF files
+2025-08-20 01:04:57.490 - StreamlinedMainManager - INFO - process_single_pdf:1245 - INFO: Processing: 'Job hugging' has replaced job hopping.pdf
+2025-08-20 01:04:57.501 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for 'Job hugging' has replaced job hopping.pdf
+2025-08-20 01:04:58.002 - StreamlinedMainManager - INFO - process_single_pdf:1245 - INFO: Processing: 10 things to watch in the stock market Monday including Nvidia and geopolitics.pdf
+2025-08-20 01:04:58.012 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for 10 things to watch in the stock market Monday including Nvidia and geopolitics.pdf
+2025-08-20 01:04:58.513 - StreamlinedMainManager - INFO - process_single_pdf:1245 - INFO: Processing: 10 things to watch in the stock market Tuesday including Palo Alto and Home Depot earnings.pdf
+2025-08-20 01:04:58.523 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for 10 things to watch in the stock market Tuesday including Palo Alto and Home Depot earnings.pdf
+2025-08-20 01:04:59.024 - StreamlinedMainManager - INFO - process_single_pdf:1245 - INFO: Processing: 5 things to know before the stock market opens Monday.pdf
+2025-08-20 01:04:59.034 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for 5 things to know before the stock market opens Monday.pdf
+2025-08-20 01:04:59.535 - StreamlinedMainManager - INFO - process_single_pdf:1245 - INFO: Processing: 5 things to know before the stock market opens Tuesday.pdf
+2025-08-20 01:04:59.548 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for 5 things to know before the stock market opens Tuesday.pdf
+2025-08-20 01:05:00.048 - StreamlinedMainManager - INFO - process_single_pdf:1245 - INFO: Processing: Air Canada suspends third-quarter and full-year guidance following 'unlawful' strike.pdf
+2025-08-20 01:05:00.060 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for Air Canada suspends third-quarter and full-year guidance following 'unlawful' strike.pdf
+2025-08-20 01:05:00.560 - StreamlinedMainManager - INFO - process_single_pdf:1245 - INFO: Processing: Air Canada, flight attendants reach tentative deal to end strike.pdf
+2025-08-20 01:05:00.572 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for Air Canada, flight attendants reach tentative deal to end strike.pdf
+2025-08-20 01:05:01.072 - StreamlinedMainManager - INFO - process_single_pdf:1245 - INFO: Processing: Amazon Expands Space at WeWork’s Offices in Midtown Manhattan - Bloomberg.pdf
+2025-08-20 01:05:01.082 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for Amazon Expands Space at WeWork’s Offices in Midtown Manhattan - Bloomberg.pdf
+2025-08-20 01:05:01.582 - StreamlinedMainManager - INFO - process_single_pdf:1245 - INFO: Processing: American money pours into European soccer as club valuations soar.pdf
+2025-08-20 01:05:01.595 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for American money pours into European soccer as club valuations soar.pdf
+2025-08-20 01:05:02.096 - StreamlinedMainManager - INFO - process_single_pdf:1245 - INFO: Processing: An Asian data center hub is quietly grappling with AI's massive costs.pdf
+2025-08-20 01:05:02.107 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for An Asian data center hub is quietly grappling with AI's massive costs.pdf
+2025-08-20 01:05:02.444 - StreamlinedMainManager - INFO - run:1347 - INFO: Shutdown requested
+2025-08-20 01:05:02.571 - StreamlinedMainManager - INFO - stop:1595 - INFO: Database connection closed
+2025-08-20 01:05:02.572 - StreamlinedMainManager - INFO - stop:1600 - INFO: Streamlined MainManager stopped

@@ -1,0 +1,518 @@
+{% extends "base.html" %}
+
+{% block title %}MainManager - Dashboard{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="mb-4">
+            <i class="fas fa-tachometer-alt"></i> MainManager Dashboard
+        </h1>
+    </div>
+</div>
+
+<!-- System Status Row -->
+<div class="row mb-4">
+    <div class="col-md-3">
+        <div class="card bg-primary text-white">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h6 class="card-title">Extension Status</h6>
+                        <h4 id="extension-status">Checking...</h4>
+                    </div>
+                    <div class="align-self-center">
+                        <i class="fas fa-puzzle-piece fa-2x"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card bg-success text-white">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h6 class="card-title">Automation Service</h6>
+                        <h4 id="automation-status">Ready</h4>
+                    </div>
+                    <div class="align-self-center">
+                        <i class="fas fa-robot fa-2x"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card bg-info text-white">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h6 class="card-title">Database</h6>
+                        <h4 id="database-status">Connected</h4>
+                    </div>
+                    <div class="align-self-center">
+                        <i class="fas fa-database fa-2x"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card bg-warning text-dark">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h6 class="card-title">Telegram</h6>
+                        <h4 id="telegram-status">Configured</h4>
+                    </div>
+                    <div class="align-self-center">
+                        <i class="fab fa-telegram fa-2x"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Link Management Row -->
+<div class="row mb-4">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="fas fa-link"></i> Link Management
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="mb-3">
+                    <label for="links-input" class="form-label">Paste Links (one per line):</label>
+                    <textarea class="form-control" id="links-input" rows="8" placeholder="https://www.bloomberg.com/news/articles/...
+https://www.wsj.com/articles/...
+https://www.cnbc.com/..."></textarea>
+                </div>
+                <div class="d-flex gap-2">
+                    <button type="button" class="btn btn-primary" onclick="loadLinks()">
+                        <i class="fas fa-upload"></i> Load Links
+                    </button>
+                    <button type="button" class="btn btn-secondary" onclick="clearLinks()">
+                        <i class="fas fa-trash"></i> Clear
+                    </button>
+                    <button type="button" class="btn btn-info" onclick="validateLinks()">
+                        <i class="fas fa-check"></i> Validate
+                    </button>
+                </div>
+                <div id="link-validation-results" class="mt-3"></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="fas fa-list"></i> Queue Status
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="mb-3">
+                    <div class="d-flex justify-content-between">
+                        <span>Total Links:</span>
+                        <strong id="total-links">0</strong>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <span>Processed:</span>
+                        <strong id="processed-links">0</strong>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <span>Failed:</span>
+                        <strong id="failed-links">0</strong>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <span>Remaining:</span>
+                        <strong id="remaining-links">0</strong>
+                    </div>
+                </div>
+                <div class="progress mb-3">
+                    <div class="progress-bar" id="progress-bar" role="progressbar" style="width: 0%"></div>
+                </div>
+                <div class="d-grid gap-2">
+                    <button type="button" class="btn btn-success" id="start-processing" onclick="startProcessing()">
+                        <i class="fas fa-play"></i> Start Processing
+                    </button>
+                    <button type="button" class="btn btn-warning" id="pause-processing" onclick="pauseProcessing()" disabled>
+                        <i class="fas fa-pause"></i> Pause
+                    </button>
+                    <button type="button" class="btn btn-danger" id="stop-processing" onclick="stopProcessing()" disabled>
+                        <i class="fas fa-stop"></i> Stop
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Current Processing Row -->
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="card" id="current-processing-card" style="display: none;">
+            <div class="card-header bg-info text-white">
+                <h5 class="mb-0">
+                    <i class="fas fa-cog fa-spin"></i> Currently Processing
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-8">
+                        <h6>Current Link:</h6>
+                        <p id="current-link" class="font-monospace"></p>
+                        <div class="d-flex gap-3">
+                            <span><strong>Attempt:</strong> <span id="current-attempt">1</span></span>
+                            <span><strong>Status:</strong> <span id="current-status">Processing</span></span>
+                            <span><strong>Started:</strong> <span id="processing-start-time">--</span></span>
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-end">
+                        <div class="spinner-border text-info" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Recent Activity Row -->
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="fas fa-clock"></i> Recent Activity
+                </h5>
+            </div>
+            <div class="card-body">
+                <div id="recent-activity" style="max-height: 300px; overflow-y: auto;">
+                    <p class="text-muted">No recent activity</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="fas fa-exclamation-triangle"></i> Failed Links
+                </h5>
+            </div>
+            <div class="card-body">
+                <div id="failed-links-list" style="max-height: 300px; overflow-y: auto;">
+                    <p class="text-muted">No failed links</p>
+                </div>
+                <div class="mt-3">
+                    <button type="button" class="btn btn-sm btn-outline-primary" onclick="retryFailedLinks()">
+                        <i class="fas fa-redo"></i> Retry All
+                    </button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary" onclick="exportFailedLinks()">
+                        <i class="fas fa-download"></i> Export
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Extension Instructions Modal -->
+<div class="modal fade" id="extensionInstructionsModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">
+                    <i class="fas fa-puzzle-piece"></i> Chrome Extension Setup
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-info">
+                    <h6><i class="fas fa-info-circle"></i> Before you start:</h6>
+                    <ol>
+                        <li>Open Chrome browser</li>
+                        <li>Load the Universal News Processor extension</li>
+                        <li>Open the extension dashboard</li>
+                        <li>Return here to control the processing</li>
+                    </ol>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h6>Extension Status:</h6>
+                        <div id="extension-connection-status" class="alert alert-warning">
+                            <i class="fas fa-exclamation-triangle"></i> Extension not connected
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h6>Quick Actions:</h6>
+                        <button type="button" class="btn btn-primary btn-sm" onclick="checkExtensionConnection()">
+                            <i class="fas fa-sync"></i> Check Connection
+                        </button>
+                        <button type="button" class="btn btn-info btn-sm" onclick="sendTestMessage()">
+                            <i class="fas fa-paper-plane"></i> Test Communication
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+// Page-specific JavaScript
+document.addEventListener('DOMContentLoaded', function() {
+    // Check initial status
+    updateSystemStatus();
+    
+    // Set up periodic status updates
+    setInterval(updateSystemStatus, 5000);
+    
+    // Check if extension instructions should be shown
+    setTimeout(checkExtensionStatus, 2000);
+});
+
+function updateSystemStatus() {
+    fetch('/api/status')
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                updateStatusDisplay(data);
+            }
+        })
+        .catch(error => {
+            console.error('Error updating status:', error);
+        });
+}
+
+function updateStatusDisplay(data) {
+    // Update extension status
+    const extensionStatus = document.getElementById('extension-status');
+    if (data.extension_connected) {
+        extensionStatus.textContent = 'Connected';
+        extensionStatus.parentElement.parentElement.parentElement.className = 'card bg-success text-white';
+    } else {
+        extensionStatus.textContent = 'Disconnected';
+        extensionStatus.parentElement.parentElement.parentElement.className = 'card bg-danger text-white';
+    }
+    
+    // Update processing status
+    const status = data.status;
+    document.getElementById('total-links').textContent = status.total_links;
+    document.getElementById('processed-links').textContent = status.completed;
+    document.getElementById('failed-links').textContent = status.failed;
+    document.getElementById('remaining-links').textContent = status.total_links - status.completed - status.failed;
+    
+    // Update progress bar
+    const progress = status.total_links > 0 ? (status.completed / status.total_links) * 100 : 0;
+    document.getElementById('progress-bar').style.width = progress + '%';
+    
+    // Update current processing
+    if (status.is_processing && status.current_link) {
+        showCurrentProcessing(status);
+    } else {
+        hideCurrentProcessing();
+    }
+    
+    // Update button states
+    updateButtonStates(status);
+}
+
+function showCurrentProcessing(status) {
+    const card = document.getElementById('current-processing-card');
+    card.style.display = 'block';
+    
+    document.getElementById('current-link').textContent = status.current_link;
+    document.getElementById('current-attempt').textContent = status.current_attempt || 1;
+    document.getElementById('current-status').textContent = status.is_paused ? 'Paused' : 'Processing';
+}
+
+function hideCurrentProcessing() {
+    document.getElementById('current-processing-card').style.display = 'none';
+}
+
+function updateButtonStates(status) {
+    const startBtn = document.getElementById('start-processing');
+    const pauseBtn = document.getElementById('pause-processing');
+    const stopBtn = document.getElementById('stop-processing');
+    
+    if (status.is_processing) {
+        startBtn.disabled = true;
+        pauseBtn.disabled = false;
+        stopBtn.disabled = false;
+    } else {
+        startBtn.disabled = status.total_links === 0;
+        pauseBtn.disabled = true;
+        stopBtn.disabled = true;
+    }
+}
+
+function checkExtensionStatus() {
+    fetch('/api/extension/status')
+        .then(response => response.json())
+        .then(data => {
+            if (!data.connected) {
+                // Show extension instructions modal
+                const modal = new bootstrap.Modal(document.getElementById('extensionInstructionsModal'));
+                modal.show();
+            }
+        });
+}
+
+function loadLinks() {
+    const linksInput = document.getElementById('links-input');
+    const links = linksInput.value.trim().split('\n').filter(line => line.trim());
+    
+    if (links.length === 0) {
+        showAlert('Please enter some links first', 'warning');
+        return;
+    }
+    
+    fetch('/api/links', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ links: links })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            showAlert(`Loaded ${data.added_count} links successfully`, 'success');
+            linksInput.value = '';
+            updateSystemStatus();
+        } else {
+            showAlert(`Error loading links: ${data.error}`, 'danger');
+        }
+    });
+}
+
+function clearLinks() {
+    document.getElementById('links-input').value = '';
+    showAlert('Links cleared', 'info');
+}
+
+function validateLinks() {
+    const linksInput = document.getElementById('links-input');
+    const links = linksInput.value.trim().split('\n').filter(line => line.trim());
+    
+    if (links.length === 0) {
+        showAlert('Please enter some links first', 'warning');
+        return;
+    }
+    
+    // Simple validation
+    let validCount = 0;
+    let invalidCount = 0;
+    
+    links.forEach(link => {
+        if (link.startsWith('http://') || link.startsWith('https://')) {
+            validCount++;
+        } else {
+            invalidCount++;
+        }
+    });
+    
+    const resultDiv = document.getElementById('link-validation-results');
+    resultDiv.innerHTML = `
+        <div class="alert alert-info">
+            <strong>Validation Results:</strong><br>
+            Valid links: ${validCount}<br>
+            Invalid links: ${invalidCount}<br>
+            Total: ${links.length}
+        </div>
+    `;
+}
+
+function startProcessing() {
+    fetch('/api/processing/start', { method: 'POST' })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                showAlert('Processing started', 'success');
+            } else {
+                showAlert(`Error starting processing: ${data.error}`, 'danger');
+            }
+        });
+}
+
+function pauseProcessing() {
+    fetch('/api/processing/pause', { method: 'POST' })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                showAlert('Processing paused', 'warning');
+            } else {
+                showAlert(`Error pausing processing: ${data.error}`, 'danger');
+            }
+        });
+}
+
+function stopProcessing() {
+    if (confirm('Are you sure you want to stop processing?')) {
+        fetch('/api/processing/stop', { method: 'POST' })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    showAlert('Processing stopped', 'info');
+                } else {
+                    showAlert(`Error stopping processing: ${data.error}`, 'danger');
+                }
+            });
+    }
+}
+
+function retryFailedLinks() {
+    showAlert('Retry functionality coming soon', 'info');
+}
+
+function exportFailedLinks() {
+    showAlert('Export functionality coming soon', 'info');
+}
+
+function checkExtensionConnection() {
+    fetch('/api/extension/status')
+        .then(response => response.json())
+        .then(data => {
+            const statusDiv = document.getElementById('extension-connection-status');
+            if (data.connected) {
+                statusDiv.className = 'alert alert-success';
+                statusDiv.innerHTML = '<i class="fas fa-check"></i> Extension connected';
+            } else {
+                statusDiv.className = 'alert alert-danger';
+                statusDiv.innerHTML = '<i class="fas fa-times"></i> Extension not connected';
+            }
+        });
+}
+
+function sendTestMessage() {
+    showAlert('Test message sent', 'info');
+}
+
+function showAlert(message, type) {
+    // Create and show a bootstrap alert
+    const alertDiv = document.createElement('div');
+    alertDiv.className = `alert alert-${type} alert-dismissible fade show`;
+    alertDiv.innerHTML = `
+        ${message}
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    `;
+    
+    // Insert at the top of the main container
+    const container = document.querySelector('main');
+    container.insertBefore(alertDiv, container.firstChild);
+    
+    // Auto-remove after 5 seconds
+    setTimeout(() => {
+        alertDiv.remove();
+    }, 5000);
+}
+</script>
+{% endblock %}

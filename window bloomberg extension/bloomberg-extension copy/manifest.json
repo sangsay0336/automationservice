@@ -1,0 +1,85 @@
+{
+  "manifest_version": 3,
+  "name": "Universal News Processor",
+  "version": "2.0.0",
+  "description": "Process financial news links from Bloomberg, WSJ, CNBC, Barron's and other major sites with one-click printing and automatic navigation",
+  
+  "permissions": [
+    "activeTab",
+    "storage",
+    "tabs",
+    "scripting",
+    "cookies",
+    "downloads",
+    "debugger"
+  ],
+  
+  "host_permissions": [
+    "*://*.bloomberg.com/*",
+    "*://*.wsj.com/*",
+    "*://*.cnbc.com/*",
+    "*://*.barrons.com/*",
+    "*://*.ft.com/*",
+    "*://*.marketwatch.com/*",
+    "*://*.reuters.com/*",
+    "*://*.finance.yahoo.com/*",
+    "*://*.yahoo.com/*",
+    "*://*.investopedia.com/*",
+    "*://*.benzinga.com/*",
+    "*://*.seeking-alpha.com/*",
+    "*://*.seekingalpha.com/*",
+    "*://*.fool.com/*",
+    "*://*.motleyfool.com/*",
+    "*://t.co/*",
+    "*://twitter.com/*",
+    "*://x.com/*",
+    "*://bit.ly/*",
+    "*://tinyurl.com/*"
+  ],
+  
+  "background": {
+    "service_worker": "background.js"
+  },
+  
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.bloomberg.com/*",
+        "*://*.wsj.com/*",
+        "*://*.cnbc.com/*",
+        "*://*.barrons.com/*",
+        "*://*.ft.com/*",
+        "*://*.marketwatch.com/*",
+        "*://*.reuters.com/*",
+        "*://*.finance.yahoo.com/*",
+        "*://*.yahoo.com/*",
+        "*://*.investopedia.com/*",
+        "*://*.benzinga.com/*",
+        "*://*.seeking-alpha.com/*",
+        "*://*.seekingalpha.com/*",
+        "*://*.fool.com/*",
+        "*://*.motleyfool.com/*"
+      ],
+      "js": ["content.js"],
+      "css": ["content.css"]
+    }
+  ],
+  
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Universal News Processor"
+  },
+  
+  "web_accessible_resources": [
+    {
+      "resources": ["dashboard.html"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

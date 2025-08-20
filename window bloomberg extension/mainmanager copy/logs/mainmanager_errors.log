@@ -1,0 +1,139 @@
+2025-07-18 03:10:52.296 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ❌ All PDF extraction methods failed for US CPI Report June 2025_ Live News on Inflation, Consumer Price Index - Bloomberg.pdf
+2025-07-18 03:10:52.803 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ❌ All PDF extraction methods failed for https___www.bloomberg.com_news_articles_2025-07-15_opec-partly-pushes-back-against-reports-of-saudi-output-surge_taid=6876482197006d00012e2ad9&utm_campaign=trueanthem&utm_content=business&utm_medium=social&utm_source=twitter.pdf
+2025-07-18 03:10:53.312 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ❌ All PDF extraction methods failed for Live_ FTSE 100 Rises to New Record, Surpassing 9,000 Points - Bloomberg.pdf
+2025-07-18 03:11:03.825 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ❌ All PDF extraction methods failed for US CPI Report June 2025_ Live News on Inflation, Consumer Price Index - Bloomberg.pdf
+2025-07-18 03:11:04.333 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ❌ All PDF extraction methods failed for https___www.bloomberg.com_news_articles_2025-07-15_opec-partly-pushes-back-against-reports-of-saudi-output-surge_taid=6876482197006d00012e2ad9&utm_campaign=trueanthem&utm_content=business&utm_medium=social&utm_source=twitter.pdf
+2025-07-18 03:11:04.843 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ❌ All PDF extraction methods failed for Live_ FTSE 100 Rises to New Record, Surpassing 9,000 Points - Bloomberg.pdf
+2025-07-18 03:11:15.357 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ❌ All PDF extraction methods failed for US CPI Report June 2025_ Live News on Inflation, Consumer Price Index - Bloomberg.pdf
+2025-07-18 03:11:15.864 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ❌ All PDF extraction methods failed for https___www.bloomberg.com_news_articles_2025-07-15_opec-partly-pushes-back-against-reports-of-saudi-output-surge_taid=6876482197006d00012e2ad9&utm_campaign=trueanthem&utm_content=business&utm_medium=social&utm_source=twitter.pdf
+2025-07-18 03:11:16.376 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ❌ All PDF extraction methods failed for Live_ FTSE 100 Rises to New Record, Surpassing 9,000 Points - Bloomberg.pdf
+2025-07-18 03:11:26.885 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ❌ All PDF extraction methods failed for US CPI Report June 2025_ Live News on Inflation, Consumer Price Index - Bloomberg.pdf
+2025-07-18 03:11:27.393 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ❌ All PDF extraction methods failed for https___www.bloomberg.com_news_articles_2025-07-15_opec-partly-pushes-back-against-reports-of-saudi-output-surge_taid=6876482197006d00012e2ad9&utm_campaign=trueanthem&utm_content=business&utm_medium=social&utm_source=twitter.pdf
+2025-07-18 03:11:27.903 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ❌ All PDF extraction methods failed for Live_ FTSE 100 Rises to New Record, Surpassing 9,000 Points - Bloomberg.pdf
+2025-07-18 03:11:38.418 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ❌ All PDF extraction methods failed for US CPI Report June 2025_ Live News on Inflation, Consumer Price Index - Bloomberg.pdf
+2025-07-18 03:11:38.927 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ❌ All PDF extraction methods failed for https___www.bloomberg.com_news_articles_2025-07-15_opec-partly-pushes-back-against-reports-of-saudi-output-surge_taid=6876482197006d00012e2ad9&utm_campaign=trueanthem&utm_content=business&utm_medium=social&utm_source=twitter.pdf
+2025-07-18 03:11:39.437 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ❌ All PDF extraction methods failed for Live_ FTSE 100 Rises to New Record, Surpassing 9,000 Points - Bloomberg.pdf
+2025-07-18 03:11:49.950 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ❌ All PDF extraction methods failed for US CPI Report June 2025_ Live News on Inflation, Consumer Price Index - Bloomberg.pdf
+2025-07-18 03:11:50.459 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ❌ All PDF extraction methods failed for https___www.bloomberg.com_news_articles_2025-07-15_opec-partly-pushes-back-against-reports-of-saudi-output-surge_taid=6876482197006d00012e2ad9&utm_campaign=trueanthem&utm_content=business&utm_medium=social&utm_source=twitter.pdf
+2025-07-18 03:11:50.967 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ❌ All PDF extraction methods failed for Live_ FTSE 100 Rises to New Record, Surpassing 9,000 Points - Bloomberg.pdf
+2025-07-18 03:12:10.504 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ❌ All PDF extraction methods failed for US CPI Report June 2025_ Live News on Inflation, Consumer Price Index - Bloomberg.pdf
+2025-07-18 03:12:28.177 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ❌ All PDF extraction methods failed for https___www.bloomberg.com_news_articles_2025-07-15_opec-partly-pushes-back-against-reports-of-saudi-output-surge_taid=6876482197006d00012e2ad9&utm_campaign=trueanthem&utm_content=business&utm_medium=social&utm_source=twitter.pdf
+2025-07-18 03:12:45.227 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ❌ All PDF extraction methods failed for Live_ FTSE 100 Rises to New Record, Surpassing 9,000 Points - Bloomberg.pdf
+2025-07-18 03:13:31.881 - StreamlinedMainManager - ERROR - process_single_pdf:1277 - 💥 Processing error US CPI Report June 2025_ Live News on Inflation, Consumer Price Index - Bloomberg.pdf: [Errno 2] No such file or directory: '/Users/sangsay/Desktop/INCOMING_PDFS/US CPI Report June 2025_ Live News on Inflation, Consumer Price Index - Bloomberg.pdf'
+2025-07-18 03:14:00.154 - StreamlinedMainManager - ERROR - process_single_pdf:1277 - 💥 Processing error https___www.bloomberg.com_news_articles_2025-07-15_opec-partly-pushes-back-against-reports-of-saudi-output-surge_taid=6876482197006d00012e2ad9&utm_campaign=trueanthem&utm_content=business&utm_medium=social&utm_source=twitter.pdf: [Errno 2] No such file or directory: '/Users/sangsay/Desktop/INCOMING_PDFS/https___www.bloomberg.com_news_articles_2025-07-15_opec-partly-pushes-back-against-reports-of-saudi-output-surge_taid=6876482197006d00012e2ad9&utm_campaign=trueanthem&utm_content=business&utm_medium=social&utm_source=twitter.pdf'
+2025-07-18 03:14:14.107 - StreamlinedMainManager - ERROR - process_single_pdf:1277 - 💥 Processing error Live_ FTSE 100 Rises to New Record, Surpassing 9,000 Points - Bloomberg.pdf: [Errno 2] No such file or directory: '/Users/sangsay/Desktop/INCOMING_PDFS/Live_ FTSE 100 Rises to New Record, Surpassing 9,000 Points - Bloomberg.pdf'
+2025-07-21 02:48:04.306 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ❌ All PDF extraction methods failed for University_of_Arizona_1915740_eDiploma (1).pdf
+2025-07-21 02:48:06.995 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ❌ All PDF extraction methods failed for University_of_Arizona_1915740_eDiploma.pdf
+2025-07-21 02:48:19.673 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ❌ All PDF extraction methods failed for University_of_Arizona_1915740_eDiploma (1).pdf
+2025-07-21 02:48:22.357 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ❌ All PDF extraction methods failed for University_of_Arizona_1915740_eDiploma.pdf
+2025-07-21 02:48:35.059 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ❌ All PDF extraction methods failed for University_of_Arizona_1915740_eDiploma (1).pdf
+2025-07-21 02:48:37.748 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ❌ All PDF extraction methods failed for University_of_Arizona_1915740_eDiploma.pdf
+2025-07-22 02:50:12.343 - StreamlinedMainManager - ERROR - process_single_pdf:1277 - 💥 Processing error G-20 Communique Delivers Rare Show of Unity Amid Trump Trade War - Bloomberg.pdf: [Errno 2] No such file or directory: '/Users/sangsay/Desktop/INCOMING_PDFS/G-20 Communique Delivers Rare Show of Unity Amid Trump Trade War - Bloomberg.pdf'
+2025-07-22 02:50:18.128 - StreamlinedMainManager - ERROR - process_single_pdf:1277 - 💥 Processing error UK Looking to Join Trump Plan to Purchase US Weapons for Ukraine - Bloomberg.pdf: [Errno 2] No such file or directory: '/Users/sangsay/Desktop/INCOMING_PDFS/UK Looking to Join Trump Plan to Purchase US Weapons for Ukraine - Bloomberg.pdf'
+2025-07-22 02:50:18.629 - StreamlinedMainManager - ERROR - process_single_pdf:1277 - 💥 Processing error UK Sanctions Russian Spies Over Cyber Warfare Operations - Bloomberg.pdf: [Errno 2] No such file or directory: '/Users/sangsay/Desktop/INCOMING_PDFS/UK Sanctions Russian Spies Over Cyber Warfare Operations - Bloomberg.pdf'
+2025-07-28 00:53:00.182 - StreamlinedMainManager - ERROR - get_db_connection:276 - Database connection error: ('42000', "[42000] [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Cannot open server 'sangsay' requested by the login. Client with IP address '103.108.231.26' is not allowed to access the server.  To enable access, use the Azure Management Portal or run sp_set_firewall_rule on the master database to create a firewall rule for this IP address or address range.  It may take up to five minutes for this change to take effect. (40615) (SQLDriverConnect)")
+2025-07-28 00:53:06.203 - StreamlinedMainManager - ERROR - get_db_connection:276 - Database connection error: ('42000', "[42000] [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Cannot open server 'sangsay' requested by the login. Client with IP address '103.108.231.26' is not allowed to access the server.  To enable access, use the Azure Management Portal or run sp_set_firewall_rule on the master database to create a firewall rule for this IP address or address range.  It may take up to five minutes for this change to take effect. (40615) (SQLDriverConnect)")
+2025-07-28 00:53:12.212 - StreamlinedMainManager - ERROR - get_db_connection:276 - Database connection error: ('42000', "[42000] [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Cannot open server 'sangsay' requested by the login. Client with IP address '103.108.231.26' is not allowed to access the server.  To enable access, use the Azure Management Portal or run sp_set_firewall_rule on the master database to create a firewall rule for this IP address or address range.  It may take up to five minutes for this change to take effect. (40615) (SQLDriverConnect)")
+2025-07-28 00:53:12.213 - StreamlinedMainManager - ERROR - init_database:360 - ❌ Failed to establish database connection after all retries
+2025-07-31 00:28:20.710 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ❌ All PDF extraction methods failed for Ansnol Land #1.pdf.pdf
+2025-07-31 00:28:21.272 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ❌ All PDF extraction methods failed for Ansnol Land #1 (1).pdf
+2025-07-31 00:28:21.803 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ❌ All PDF extraction methods failed for Transportation Business License.pdf
+2025-07-31 00:28:22.383 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ❌ All PDF extraction methods failed for Ansnol Land #1 5090m2.pdf.pdf
+2025-07-31 00:28:22.943 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ❌ All PDF extraction methods failed for Ansnol Land #1.pdf
+2025-07-31 00:28:35.032 - StreamlinedMainManager - ERROR - process_single_pdf:1256 - ❌ Content cleaning failed: Ansnol Land 2.pdf
+2025-07-31 00:28:45.584 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ❌ All PDF extraction methods failed for Ansnol Land #1.pdf.pdf
+2025-07-31 00:28:46.142 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ❌ All PDF extraction methods failed for Ansnol Land #1 (1).pdf
+2025-07-31 00:28:46.660 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ❌ All PDF extraction methods failed for Transportation Business License.pdf
+2025-07-31 00:28:47.240 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ❌ All PDF extraction methods failed for Ansnol Land #1 5090m2.pdf.pdf
+2025-07-31 00:28:47.789 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ❌ All PDF extraction methods failed for Ansnol Land #1.pdf
+2025-08-08 04:00:08.871 - StreamlinedMainManager - ERROR - process_single_pdf:1277 - 💥 Processing error New Tab.pdf: [Errno 2] No such file or directory: '/Users/sangsay/Desktop/INCOMING_PDFS/New Tab.pdf'
+2025-08-20 01:00:10.518 - StreamlinedMainManager - ERROR - init_gemini:252 - ERROR: Failed to initialize Gemini: 400 API key not valid. Please pass a valid API key. [reason: "API_KEY_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "API key not valid. Please pass a valid API key."
+]
+2025-08-20 01:03:23.656 - StreamlinedMainManager - ERROR - init_gemini:252 - ERROR: Failed to initialize Gemini: 400 API key not valid. Please pass a valid API key. [reason: "API_KEY_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "API key not valid. Please pass a valid API key."
+]
+2025-08-20 01:03:24.825 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for 'Job hugging' has replaced job hopping.pdf
+2025-08-20 01:03:25.340 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for 10 things to watch in the stock market Monday including Nvidia and geopolitics.pdf
+2025-08-20 01:03:25.855 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for 10 things to watch in the stock market Tuesday including Palo Alto and Home Depot earnings.pdf
+2025-08-20 01:03:26.368 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for 5 things to know before the stock market opens Monday.pdf
+2025-08-20 01:03:26.882 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for 5 things to know before the stock market opens Tuesday.pdf
+2025-08-20 01:03:27.409 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for Air Canada suspends third-quarter and full-year guidance following 'unlawful' strike.pdf
+2025-08-20 01:03:27.925 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for Air Canada, flight attendants reach tentative deal to end strike.pdf
+2025-08-20 01:03:28.438 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for Amazon Expands Space at WeWork�s Offices in Midtown Manhattan - Bloomberg.pdf
+2025-08-20 01:03:28.953 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for American money pours into European soccer as club valuations soar.pdf
+2025-08-20 01:03:29.468 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for An Asian data center hub is quietly grappling with AI's massive costs.pdf
+2025-08-20 01:03:29.982 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for Analysts downplay AI bubble worries as Altman looks to spend trillions.pdf
+2025-08-20 01:03:30.496 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for Apple just landed a key win for the global encryption fight.pdf
+2025-08-20 01:03:31.010 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for Apple ups India iPhone production as country's Russia ties irk Trump.pdf
+2025-08-20 01:03:31.526 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for Asia markets close mostly higher as investors await details of U.S.-Ukraine talks.pdf
+2025-08-20 01:03:32.075 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for Asia markets mostly fall as investors await Fed meeting.pdf
+2025-08-20 01:03:32.590 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for Bernstein lowers rating on Li Auto, says EV maker will see 'bumpier road ahead'.pdf
+2025-08-20 01:03:33.104 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for Bessent says interviews for 'incredible group' of potential Fed chairs will start after Labor Day.pdf
+2025-08-20 01:03:33.617 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for Best Buy launches third-party marketplace.pdf
+2025-08-20 01:03:34.132 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for Best Stocks_ Rounding out our biotech exposure.pdf
+2025-08-20 01:03:34.666 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for BHP Full-Year Profit Tumbles 26% With Key Exports Under Pressure - Bloomberg.pdf
+2025-08-20 01:03:35.181 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for Big oil bets big on LNG, shrugging off peak gas predictions.pdf
+2025-08-20 01:03:35.696 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for Bitcoin sinks to $115,000 after hitting its newest record, as macro concerns spark liquidation wave.pdf
+2025-08-20 01:03:36.211 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for BlackRock Readies Venture Secondaries Fund as Market Heats Up - Bloomberg.pdf
+2025-08-20 01:03:36.724 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for Blockchain-Based Lender Figure Technology Files Publicly for IPO - Bloomberg.pdf
+2025-08-20 01:03:37.239 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for BMO_ These buy-rated stocks are undervalued and can perform well.pdf
+2025-08-20 01:03:37.753 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for Buy Palo Alto if it sees a post-earnings sell-off, according to CIO Landsberg.pdf
+2025-08-20 01:03:38.268 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for California passes bill to give insurance interest to homeowners.pdf
+2025-08-20 01:03:38.807 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for Canaccord Cancels Summer for a Boston Deals Party - Bloomberg.pdf
+2025-08-20 01:03:39.361 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for Catching Up on Ukraine and Trump�s Tax Credits - Bloomberg.pdf
+2025-08-20 01:03:39.906 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for CCTV Script 13_08_2025.pdf
+2025-08-20 01:03:40.447 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for CCTV Script 14_08_2025.pdf
+2025-08-20 01:03:40.988 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for CCTV Script 15_08_2025.pdf
+2025-08-20 01:03:41.531 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for CCTV Script 18_08_25.pdf
+2025-08-20 01:03:42.074 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for CCTV Script 19_08_25.pdf
+2025-08-20 01:03:42.588 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for CEO_ The No. 1 job interview question I always ask candidates.pdf
+2025-08-20 01:03:43.120 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for Chicago Schools Seeks $1 Billion of Short-Term Debt as Cash Gone - Bloomberg.pdf
+2025-08-20 01:03:43.635 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for China's electric car industry invests more overseas than at home.pdf
+2025-08-20 01:03:44.148 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for China, India Seek Better Ties as US Policies Add to Uncertainty - Bloomberg.pdf
+2025-08-20 01:03:44.741 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for China�s Economy Needs Help, But Will It Come_ - Bloomberg.pdf
+2025-08-20 01:03:45.256 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for China�s Stock Rally Has The Makings of a Durable Bull Run - Bloomberg.pdf
+2025-08-20 01:03:45.771 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for CNBC Daily Open_ 'Peace' can look different to Trump, Putin and Zelenskyy.pdf
+2025-08-20 01:03:46.286 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for CNBC Daily Open_ Is the AI industry in a bubble, as OpenAI CEO says_.pdf
+2025-08-20 01:03:46.802 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for CNBC Daily Open_ OpenAI CEO, who sparked AI frenzy, worries about AI bubble.pdf
+2025-08-20 01:03:47.316 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for CNBC Daily Open_ Trump's Ukraine 'peace' doesn't seem like what Zelenskyy wants.pdf
+2025-08-20 01:03:47.829 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for Comcast separation_ Versant to rename MSNBC, drop peacock logos.pdf
+2025-08-20 01:03:48.344 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for Coolcations are booming as tourists prioritize quieter, off-peak trips.pdf
+2025-08-20 01:03:48.857 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for CSL to Spinoff Vaccine Unit Seqirus, Plans $487 Million Buyback - Bloomberg.pdf
+2025-08-20 01:03:49.396 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for CVS shares are breaking out to the upside after a 3-year bear market cycle, according to the charts.pdf
+2025-08-20 01:03:49.940 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for Deutsche Bank initiates this �hidden gem� education stock at a buy rating.pdf
+2025-08-20 01:03:50.455 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for Eli Lilly, pharma firms to hike prices on Trump's drug pricing demands.pdf
+2025-08-20 01:03:50.970 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for Elon Musk_ Tesla reportedly cuts UK monthly lease fee as sales drop.pdf
+2025-08-20 01:03:51.483 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for End of Socialist Rule Sends Bolivia Bonds to Over Two-Year High - Bloomberg.pdf
+2025-08-20 01:03:51.998 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for European markets on Aug 19_ Stoxx 600, FTSE, DAX, Trump talks, Fed.pdf
+2025-08-20 01:03:52.512 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for European markets on Mon Aug 18_ Stoxx 600, DAX, CAC, FTSE, stocks.pdf
+2025-08-20 01:03:53.026 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for Evercore is negative on CrowdStrike, and Palo Alto earnings preview.pdf
+2025-08-20 01:03:53.538 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for Evercore ISI upgrades Caterpillar and forecasts more than 15% upside.pdf
+2025-08-20 01:03:54.075 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for Fanatics May Refund Wager For NFL Player Injuries - Bloomberg.pdf
+2025-08-20 01:03:54.588 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for Fed minutes will be looked at for clues on policy and politics.pdf
+2025-08-20 01:03:55.104 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for Gen Z workers are going to IRL networking events to find friendships.pdf
+2025-08-20 01:03:55.707 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for Glencore Seeks Incentives for $13 Billion Argentina Copper Mining Projects - Bloomberg.pdf
+2025-08-20 01:03:56.223 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for Goldman Is on the Hunt for Wealth Advisers as BHP Profit Drops - Bloomberg.pdf
+2025-08-20 01:03:56.738 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for Goldman Sachs Targets Richest Families in Australia Expansion - Bloomberg.pdf
+2025-08-20 01:03:57.252 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for Goldman-Backed Firm Raises �2 Billion as Circular Economy Gains - Bloomberg.pdf
+2025-08-20 01:03:57.767 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for Google, Kairos Power plan advanced nuclear plant for Tennessee Valley Authority grid by 2030.pdf
+2025-08-20 01:03:58.281 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for Harvard psychologist_ 7 phrases highly narcissistic people love to say�and how to respond.pdf
+2025-08-20 01:03:58.795 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for Here�s why people risk everything for an affair_ couple's therapist.pdf
+2025-08-20 01:03:59.311 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for Home Depot (HD) earnings Q2 2025.pdf
+2025-08-20 01:03:59.827 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for Home Depot helps the Dow reach a fresh high, and Nvidia eyes a new chip for China.pdf
+2025-08-20 01:04:00.345 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for How a $30 Million Crypto Pardon Scheme Failed Before It Got to Trump - Bloomberg.pdf
+2025-08-20 01:04:00.875 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for How Afterpay co-founder�s ex-boss gave him push to start company that sold for $29B.pdf
+2025-08-20 01:04:01.438 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for How far a $100,000 salary goes after taxes in every U.S. state.pdf
+2025-08-20 01:04:01.957 - StreamlinedMainManager - ERROR - extract_pdf_text:459 - ERROR: All PDF extraction methods failed for India's creator economy is booming as influencers start businesses.pdf

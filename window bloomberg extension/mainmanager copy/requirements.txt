@@ -1,0 +1,26 @@
+# Streamlined MainManager Requirements
+# Core functionality only
+
+# Database connectivity
+pyodbc==5.0.1
+
+# PDF processing
+PyPDF2==3.0.1
+pdfplumber==0.10.3
+
+# AI functionality
+google-generativeai==0.3.2
+
+# Environment variables
+python-dotenv==1.0.0
+
+# Standard libraries (already included in Python)
+# - pathlib
+# - json
+# - logging
+# - threading
+# - datetime
+# - typing
+# - re
+# - os
+# - time

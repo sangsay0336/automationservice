@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        body {
+            width: 400px;
+            min-height: 500px;
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .container {
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 20px;
+            color: white;
+        }
+        
+        .header p {
+            margin: 5px 0 0 0;
+            opacity: 0.9;
+            font-size: 12px;
+        }
+        
+        .section {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .section h3 {
+            margin: 0 0 10px 0;
+            font-size: 14px;
+            color: #fff;
+        }
+        
+        textarea {
+            width: 100%;
+            height: 100px;
+            padding: 8px;
+            border: none;
+            border-radius: 4px;
+            font-size: 12px;
+            resize: vertical;
+            box-sizing: border-box;
+        }
+        
+        .controls {
+            display: flex;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        
+        button {
+            flex: 1;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 4px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .btn-primary {
+            background: #28a745;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #218838;
+        }
+        
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+        
+        .btn-danger {
+            background: #dc3545;
+            color: white;
+        }
+        
+        .btn-danger:hover {
+            background: #c82333;
+        }
+        
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+        
+        .btn-secondary:hover:not(.disabled) {
+            background: #545b62;
+        }
+        
+        .status {
+            font-size: 12px;
+            padding: 8px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        
+        .status.idle {
+            background: rgba(108, 117, 125, 0.3);
+        }
+        
+        .status.processing {
+            background: rgba(40, 167, 69, 0.3);
+            animation: pulse 2s infinite;
+        }
+        
+        .status.paused {
+            background: rgba(255, 193, 7, 0.3);
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+        
+        .progress {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            overflow: hidden;
+            height: 6px;
+            margin-bottom: 10px;
+        }
+        
+        .progress-bar {
+            background: #28a745;
+            height: 100%;
+            transition: width 0.3s ease;
+        }
+        
+        .current-link {
+            font-size: 11px;
+            word-break: break-all;
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
+        
+        .link-count {
+            font-size: 12px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        
+        .help {
+            font-size: 11px;
+            opacity: 0.8;
+            line-height: 1.4;
+        }
+        
+        .profile-info {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            margin-bottom: 10px;
+        }
+        
+        .disabled {
+            opacity: 0.5;
+            cursor: not-allowed !important;
+            pointer-events: none !important;
+        }
+        
+        .disabled.force-enabled {
+            pointer-events: auto !important;
+            cursor: pointer !important;
+            opacity: 1 !important;
+        }
+
+        .folder-input {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        .folder-input label {
+            font-size: 12px;
+            min-width: 80px;
+        }
+
+        .folder-input input {
+            flex: 1;
+            padding: 6px 8px;
+            border: none;
+            border-radius: 4px;
+            font-size: 12px;
+            box-sizing: border-box;
+        }
+
+        .folder-input button {
+            padding: 6px 12px;
+            margin: 0;
+            flex: none;
+        }
+
+        .folder-status {
+            font-size: 11px;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 6px 8px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        .folder-status span {
+            font-weight: bold;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📰 Universal News Processor</h1>
+            <p>Bloomberg, WSJ, CNBC, Barron's & more</p>
+            <div style="text-align: right; margin-top: 10px;">
+                <button id="openDashboard" class="btn-secondary" style="font-size: 10px; padding: 4px 8px;">📊 Open Dashboard</button>
+            </div>
+        </div>
+        
+        <div class="profile-info" id="profileInfo">
+            🎭 Current Chrome Profile: <span id="profileName">Loading...</span>
+        </div>
+        
+        <div class="section">
+            <h3>👁️ Extension UI Control</h3>
+            <div class="ui-control">
+                <label for="extensionUIToggle" style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                    <input type="checkbox" id="extensionUIToggle" style="transform: scale(1.2);">
+                    <span>Show extension controls on news pages</span>
+                </label>
+                <p style="font-size: 11px; opacity: 0.8; margin: 8px 0 0 0;">
+                    ⚠️ When disabled, extension controls won't appear on news pages (cleaner for batch processing)
+                </p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>📁 Save Settings</h3>
+            <div class="folder-input">
+                <label for="saveFolder">📅 Date Folder:</label>
+                <input type="text" id="saveFolder" placeholder="2024-12-30" />
+                <button id="setFolder" class="btn-secondary">Set Folder</button>
+            </div>
+            <div class="folder-status" id="folderStatus">
+                📂 Current: <span id="currentFolder">default</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>📋 Add News Links</h3>
+            <textarea id="linksInput" placeholder="Paste financial news links here, one per line:
+https://www.bloomberg.com/news/articles/...
+https://www.wsj.com/articles/...
+https://www.cnbc.com/news/...
+https://www.barrons.com/articles/...
+https://t.co/... (short links)
+"></textarea>
+            <div class="controls">
+                <button id="loadLinks" class="btn-primary">📥 Load Links</button>
+                <button id="clearLinks" class="btn-secondary">🗑️ Clear</button>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h3>🖨️ Print Method</h3>
+            <div style="font-size: 12px; margin-bottom: 10px;">
+                <div style="display: flex; gap: 8px; align-items: center; margin-bottom: 8px;">
+                    <input type="radio" id="printMethodPython" name="printMethod" value="python" checked />
+                    <label for="printMethodPython" style="font-size: 11px;">Python Automation (Zero-click) <span id="pythonStatus" style="font-size: 9px;">⏳</span></label>
+                </div>
+                <div style="font-size: 10px; opacity: 0.8; margin-top: 5px;">
+                    <strong>Python Automation:</strong> Sends real Cmd+P and Enter keystrokes. Zero clicks required! Requires Python service setup.
+                </div>
+                <div id="timingControls" style="margin-top: 10px; display: block;">
+                    <div style="font-size: 11px; font-weight: bold; margin-bottom: 8px;">⏱️ Python Automation Timing</div>
+                    <div style="display: flex; gap: 8px; align-items: center; margin-bottom: 6px;">
+                        <label style="font-size: 10px; min-width: 100px;">Page Load Wait:</label>
+                        <select id="pageLoadWait" style="flex: 1; padding: 2px; font-size: 10px;">
+                            <option value="2000">2 seconds</option>
+                            <option value="3000">3 seconds</option>
+                            <option value="4000">4 seconds</option>
+                            <option value="5000" selected>5 seconds</option>
+                            <option value="7000">7 seconds</option>
+                            <option value="10000">10 seconds</option>
+                        </select>
+                    </div>
+                    <div style="display: flex; gap: 8px; align-items: center; margin-bottom: 6px;">
+                        <label style="font-size: 10px; min-width: 100px;">Print Dialog Wait:</label>
+                        <select id="printDialogWait" style="flex: 1; padding: 2px; font-size: 10px;">
+                            <option value="1500">1.5 seconds</option>
+                            <option value="2000" selected>2 seconds</option>
+                            <option value="3000">3 seconds</option>
+                            <option value="4000">4 seconds</option>
+                            <option value="5000">5 seconds</option>
+                        </select>
+                    </div>
+                    <div style="display: flex; gap: 8px; align-items: center; margin-bottom: 6px;">
+                        <label style="font-size: 10px; min-width: 100px;">Save Dialog Wait:</label>
+                        <select id="saveDialogWait" style="flex: 1; padding: 2px; font-size: 10px;">
+                            <option value="1000">1 second</option>
+                            <option value="1500" selected>1.5 seconds</option>
+                            <option value="2000">2 seconds</option>
+                            <option value="3000">3 seconds</option>
+                        </select>
+                    </div>
+                    <div style="display: flex; gap: 8px; align-items: center; margin-bottom: 6px;">
+                        <label style="font-size: 10px; min-width: 100px;">Between Pages:</label>
+                        <select id="betweenPagesWait" style="flex: 1; padding: 2px; font-size: 10px;">
+                            <option value="1000">1 second</option>
+                            <option value="2000" selected>2 seconds</option>
+                            <option value="3000">3 seconds</option>
+                            <option value="5000">5 seconds</option>
+                        </select>
+                    </div>
+                    <div style="font-size: 9px; opacity: 0.7; margin-top: 6px;">
+                        <strong>Page Load Wait:</strong> Time to wait for each page to fully load<br>
+                        <strong>Print Dialog Wait:</strong> Time between Cmd+P and first Enter<br>
+                        <strong>Save Dialog Wait:</strong> Time between first and second Enter<br>
+                        <strong>Between Pages:</strong> Delay before moving to next page after processing
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>⚙️ Processing Control</h3>
+            <div class="status idle" id="status">
+                Ready to process links
+            </div>
+            
+            <!-- Pause/Block Status -->
+            <div id="pauseStatus" style="display: none; background: rgba(255, 193, 7, 0.3); padding: 8px; border-radius: 4px; font-size: 11px; margin-bottom: 10px;">
+                <div id="pauseMessage">⏸️ Processing paused</div>
+                <div id="pauseReason" style="opacity: 0.8; margin-top: 4px;"></div>
+                
+                <!-- Resume Position Selection -->
+                <div id="resumePositionSelector" style="margin-top: 10px;">
+                    <label for="resumeFromIndex" style="display: block; margin-bottom: 4px; font-weight: bold;">📍 Resume from:</label>
+                    <select id="resumeFromIndex" style="width: 100%; padding: 4px; font-size: 11px; border: none; border-radius: 3px; background: rgba(255,255,255,0.9); color: #333;">
+                        <option value="current">Continue from where paused</option>
+                    </select>
+                    <div style="font-size: 10px; opacity: 0.8; margin-top: 4px;">Select which link to resume processing from</div>
+                </div>
+            </div>
+            
+            <div class="progress">
+                <div class="progress-bar" id="progressBar" style="width: 0%"></div>
+            </div>
+            <div class="link-count" id="linkCount">0 links loaded</div>
+            <div class="current-link" id="currentLink" style="display: none;"></div>
+            
+            <!-- Processing Status Display -->
+            <div id="processingStatusSection" style="display: none; margin: 10px 0; padding: 10px; background: rgba(255,255,255,0.1); border-radius: 6px; font-size: 11px;">
+                <div style="font-weight: bold; margin-bottom: 8px;">📊 Processing Status</div>
+                <div id="processingStats" style="display: grid; grid-template-columns: 1fr 1fr; gap: 5px;">
+                    <div>✅ Processed: <span id="processedCount">0</span></div>
+                    <div>❌ Failed: <span id="failedCount">0</span></div>
+                    <div>⏳ Remaining: <span id="unprocessedCount">0</span></div>
+                    <div>📋 Queue: <span id="queueCount">0</span></div>
+                </div>
+                <div id="currentlyProcessing" style="margin-top: 8px; display: none;">
+                    <div style="font-weight: bold;">🔄 Currently Processing:</div>
+                    <div id="currentProcessingLink" style="font-size: 10px; opacity: 0.8; word-break: break-all;"></div>
+                </div>
+            </div>
+            
+            <div class="controls">
+                <button id="startProcessing" class="btn-primary disabled">🚀 Start Sequential</button>
+                <button id="resumeProcessing" class="btn-primary disabled" style="display: none;">▶️ Resume</button>
+                <button id="batchProcessing" class="btn-primary disabled">📦 Smart Batch</button>
+                <button id="pauseProcessing" class="btn-secondary disabled">⏸️ Pause</button>
+                <button id="resetProcessing" class="btn-danger" style="display: none;">🔄 Reset</button>
+                <button id="copyUnprocessed" class="btn-secondary" style="display: none;">📋 Copy Unprocessed</button>
+                <button id="stopProcessing" class="btn-danger disabled">⏹️ Stop</button>
+            </div>
+            
+            <!-- Sequential Processing Settings -->
+            <div class="sequential-settings" id="sequentialSettings" style="margin-top: 10px;">
+                <div style="font-size: 11px; margin-bottom: 8px;">
+                    <strong>🔄 Sequential Mode Settings</strong><br>
+                    <span style="opacity: 0.8;">Automatic page-by-page processing with customizable timing</span>
+                </div>
+                
+                <!-- Auto-Print Toggle -->
+                <div style="margin-bottom: 10px;">
+                    <label style="display: flex; align-items: center; font-size: 11px; gap: 8px;">
+                        <input type="checkbox" id="useAutoPrint" checked style="margin: 0;">
+                        <span>🤖 Auto-Print (uses selected print method)</span>
+                    </label>
+                    <div style="font-size: 10px; opacity: 0.7; margin-top: 2px; margin-left: 20px;">
+                        When enabled, automatically prints each page using your selected method
+                    </div>
+                </div>
+                
+                <!-- Auto-Advance Toggle -->
+                <div style="margin-bottom: 10px;">
+                    <label style="display: flex; align-items: center; font-size: 11px; gap: 8px;">
+                        <input type="checkbox" id="autoAdvance" checked style="margin: 0;">
+                        <span>⏭️ Auto-Advance to next page</span>
+                    </label>
+                    <div style="font-size: 10px; opacity: 0.7; margin-top: 2px; margin-left: 20px;">
+                        Automatically move to next link after processing current page
+                    </div>
+                </div>
+                
+                
+                <!-- Sequential Mode Info -->
+                <div style="font-size: 10px; opacity: 0.8; margin-top: 8px; padding: 8px; background: rgba(255,255,255,0.05); border-radius: 4px;">
+                    <strong>📋 How Sequential Mode Works:</strong><br>
+                    1. Opens one page at a time<br>
+                    2. Waits for page to load<br>
+                    3. Auto-prints (if enabled) using your selected method<br>
+                    4. Waits the specified delay<br>
+                    5. Auto-advances to next page (if enabled)<br>
+                    6. Repeats until all pages processed
+                </div>
+            </div>
+            
+            <div class="batch-settings" id="batchSettings" style="display: none; margin-top: 10px;">
+                <div style="font-size: 11px; margin-bottom: 8px;">
+                    <strong>⚠️ Smart Batch Mode</strong><br>
+                    Safe for large lists (respects site limits)
+                </div>
+                <div style="display: flex; gap: 8px; align-items: center; margin-bottom: 8px;">
+                    <label style="font-size: 11px; min-width: 60px;">Batch Size:</label>
+                    <select id="batchSize" style="flex: 1; padding: 4px; font-size: 11px;">
+                        <option value="3">3 articles (Safest)</option>
+                        <option value="5" selected>5 articles (Recommended)</option>
+                        <option value="8">8 articles (Moderate risk)</option>
+                        <option value="10">10 articles (Higher risk)</option>
+                    </select>
+                </div>
+                <div style="display: flex; gap: 8px; align-items: center; margin-bottom: 8px;">
+                    <label style="font-size: 11px; min-width: 60px;">Delay:</label>
+                    <select id="batchDelay" style="flex: 1; padding: 4px; font-size: 11px;">
+                        <option value="3">3 seconds (Safe)</option>
+                        <option value="5" selected>5 seconds (Recommended)</option>
+                        <option value="8">8 seconds (Very safe)</option>
+                        <option value="10">10 seconds (Ultra safe)</option>
+                    </select>
+                </div>
+                <button id="startBatch" class="btn-primary" style="width: 100%; font-size: 11px;">
+                    🚀 Start Smart Batch Processing
+                </button>
+            </div>
+        </div>
+
+        <!-- Unprocessed Links Management -->
+        <div class="section" id="unprocessedSection" style="display: none;">
+            <h3>📋 Unprocessed Links</h3>
+            <div id="unprocessedStats" style="font-size: 11px; margin-bottom: 10px; background: rgba(255, 255, 255, 0.15); padding: 6px 8px; border-radius: 4px;">
+                <div>🔗 Unprocessed: <span id="unprocessedCount">0</span></div>
+                <div>🚫 Blocked: <span id="blockedCount">0</span></div>
+            </div>
+            
+            <div id="blockedLinks" style="display: none; margin-bottom: 10px;">
+                <div style="font-size: 11px; font-weight: bold; margin-bottom: 5px;">🚫 Blocked Links:</div>
+                <div id="blockedLinksList" style="font-size: 10px; max-height: 100px; overflow-y: auto; background: rgba(255, 255, 255, 0.1); padding: 6px; border-radius: 4px;"></div>
+            </div>
+            
+            <div class="controls">
+                <button id="exportUnprocessed" class="btn-secondary">📋 Export Links</button>
+                <button id="clearBlocked" class="btn-danger">🗑️ Clear Blocked</button>
+            </div>
+            
+            <div style="font-size: 10px; opacity: 0.8; margin-top: 8px;">
+                <strong>Instructions:</strong><br>
+                1. Fix any bot detection or login issues manually<br>
+                2. Export unprocessed links to get a clean list<br>
+                3. Copy the links and paste them back into the extension<br>
+                4. Resume processing when ready
+            </div>
+        </div>
+        
+        <div class="section">
+            <h3>ℹ️ How to Use</h3>
+            <div class="help">
+                <strong>📄 Single Page Mode:</strong><br>
+                1. Click "Start" to begin one-by-one processing<br>
+                2. On each page, click "Print & Next"<br>
+                3. Chrome print dialog opens - save as PDF<br>
+                4. Extension automatically opens next link<br><br>
+                
+                <strong>📦 Batch Mode:</strong><br>
+                1. Click "Smart Batch" for automated processing<br>
+                2. Articles are automatically downloaded as HTML<br>
+                3. No manual intervention required<br>
+                4. Best for large lists of articles
+            </div>
+            <div style="font-size: 10px; margin-top: 8px; opacity: 0.8;">
+                <strong>Supported sites:</strong> Bloomberg, Wall Street Journal, CNBC, Barron's, Financial Times, MarketWatch, Reuters, Yahoo Finance, and more
+            </div>
+        </div>
+    </div>
+    
+    <script src="popup.js"></script>
+</body>
+</html>
